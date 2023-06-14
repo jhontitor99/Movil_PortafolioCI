@@ -4,7 +4,6 @@ import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 
-
 @Component({
   selector: 'app-login1',
   templateUrl: 'login1.page.html',
@@ -13,7 +12,12 @@ import { AlertController } from '@ionic/angular';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router, private alertController: AlertController) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private router: Router,
+    private alertController: AlertController
+  ) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -21,7 +25,7 @@ export class LoginComponent implements OnInit {
       password: ['', [Validators.required]]
     });
   }
-  //Alerta
+
   async presentAlert(header: string, message: string) {
     const alert = await this.alertController.create({
       header: header,
@@ -31,7 +35,6 @@ export class LoginComponent implements OnInit {
 
     await alert.present();
   }
-
 
   login() {
     if (this.loginForm.valid) {
@@ -45,16 +48,15 @@ export class LoginComponent implements OnInit {
             this.router.navigate(['/dashboard']);
           } else {
             this.presentAlert('Error de inicio de sesión', 'Ocurrió un error al iniciar sesión.');
-
           }
         },
         (error) => {
-
           console.error(error);
+          this.presentAlert('Error de inicio de sesión', 'Ocurrió un error al iniciar sesión.');
         }
       );
     } else {
-      this.presentAlert('Error de inicio de sesión', 'Ocurrió un error al iniciar sesión.');
+      this.presentAlert('Error de inicio de sesión', 'Por favor ingrese email y contraseña.');
     }
   }
 }
