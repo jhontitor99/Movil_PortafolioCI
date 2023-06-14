@@ -1,0 +1,42 @@
+.table-container {
+    overflow-x: auto;
+}
+
+.table-wrapper {
+    max-width: 100%;
+    overflow: auto;
+}
+
+.table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.table th,
+.table td {
+    border: 1px solid #403e3e;
+    padding: 8px;
+}
+
+.table th {
+    background-color: #0a0a0a;
+    color: #fff;
+}
+
+.table tr:nth-child(even) {
+    background-color: #2b2929;
+}
+
+.logout-button {
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #4d0101;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.logout-button:hover {
+    background-color: #cc0000;
+    cursor: pointer;
+}

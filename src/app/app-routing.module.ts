@@ -1,51 +1,20 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes, CanActivate } from '@angular/router';
-import { AuthlogGuard } from './authlog.guard';
-import { HomeloginPage } from './homelogin/homelogin.page';
-import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
+import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './login1/login1.page';
+import { DashboardComponent } from './dashboard/dashboard.page';
 
-export const routes: Routes = [
-
-  { 
-    path: 'homelogin',
-    component: HomeloginPage,
-    ...canActivate(()=> redirectUnauthorizedTo(['/login1']))
-  }
-
-,
-
+const routes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'dashboard', component: DashboardComponent },
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    path: 'dashboard',
+    loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardPageModule)
   },
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
- 
-  {
-    path: 'registro',
-    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
-  },
-  {
-    path: 'login1',
-    loadChildren: () => import('./login1/login1.module').then( m => m.Login1PageModule)
-  },
-  {
-    path: 'homelogin',
-    loadChildren: () => import('./homelogin/homelogin.module').then( m => m.HomeloginPageModule)
-
-    
-  },
-
-
 ];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
-  ],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

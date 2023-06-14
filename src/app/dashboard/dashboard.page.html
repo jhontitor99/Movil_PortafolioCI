@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Dashboard
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()" class="logout-button">
+        Cerrar sesión
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Tabla masculinos -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Estadísticas de jugadores masculinos</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div class="table-container">
+        <div class="table-wrapper">
+          <table class="table">
+            <!-- Encabezado de la tabla -->
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Sueldo</th>
+                <th>Ayuda económica</th>
+                <th>Posición</th>
+                <th>Goles</th>
+                <th>Jugador lesionado</th>
+                <th>Fecha inicio lesión</th>
+                <th>Fecha fin lesión</th>
+              </tr>
+            </thead>
+            <!-- Contenido de la tabla -->
+            <tbody>
+              <tr *ngFor="let jugador of estadisticas.masculinos">
+                <td>{{ jugador.nombre }} {{ jugador.apellido }}</td>
+                <td>{{ jugador.sueldo }}</td>
+                <td>{{ jugador.ayuda_economica }}</td>
+                <td>{{ jugador.posicion }}</td>
+                <td>{{ jugador.goles }}</td>
+                <td>{{ jugador.jugador_lesionado }}</td>
+                <td>{{ jugador.fecha_inicio_lesion }}</td>
+                <td>{{ jugador.fecha_fin_lesion }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Tabla femeninos -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Estadísticas de jugadores femeninos</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div class="table-container">
+        <div class="table-wrapper">
+          <table class="table">
+            <!-- Encabezado de la tabla -->
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Sueldo</th>
+                <th>Ayuda económica</th>
+                <th>Posición</th>
+                <th>Goles</th>
+                <th>Jugador lesionado</th>
+                <th>Fecha inicio lesión</th>
+                <th>Fecha fin lesión</th>
+              </tr>
+            </thead>
+            <!-- Contenido de la tabla -->
+            <tbody>
+              <tr *ngFor="let jugador of estadisticas.femeninos">
+                <td>{{ jugador.nombre }} {{ jugador.apellido }}</td>
+                <td>{{ jugador.sueldo }}</td>
+                <td>{{ jugador.ayuda_economica }}</td>
+                <td>{{ jugador.posicion }}</td>
+                <td>{{ jugador.goles }}</td>
+                <td>{{ jugador.jugador_lesionado }}</td>
+                <td>{{ jugador.fecha_inicio_lesion }}</td>
+                <td>{{ jugador.fecha_fin_lesion }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
