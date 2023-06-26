@@ -3,6 +3,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+
 
 @Component({
   selector: 'app-login1',
@@ -12,11 +16,14 @@ import { AlertController } from '@ionic/angular';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
+
+
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private http: HttpClient
   ) { }
 
   ngOnInit() {
@@ -45,6 +52,7 @@ export class LoginComponent implements OnInit {
         (response) => {
           if (response.status === 'success') {
             // Redirigir al dashboard
+
             this.router.navigate(['/dashboard']);
           } else {
             this.presentAlert('Error de inicio de sesión', 'Ocurrió un error al iniciar sesión.');
@@ -59,4 +67,6 @@ export class LoginComponent implements OnInit {
       this.presentAlert('Error de inicio de sesión', 'Por favor ingrese email y contraseña.');
     }
   }
+
+
 }

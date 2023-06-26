@@ -1,0 +1,42 @@
+.profile-card {
+    padding: 20px;
+    background-color: #161515;
+    border-radius: 10px;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.info-table ion-row {
+    border-bottom: 1px solid #ddd;
+}
+
+.info-label,
+.info-value {
+    padding: 10px;
+}
+
+.info-label {
+    font-weight: bold;
+}
+
+.volver-button {
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #181818;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.info-value {
+    text-align: right;
+}

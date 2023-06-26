@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,7 +10,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DashboardComponent implements OnInit {
   estadisticas: { masculinos: any[], femeninos: any[] } = { masculinos: [], femeninos: [] };
-  constructor(private http: HttpClient) { }
+  isAuthenticated: boolean;
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
     this.obtenerReporteEstadisticas();
@@ -29,7 +32,8 @@ export class DashboardComponent implements OnInit {
   logout() {
     this.http.get('http://localhost:80/PortafolioCI/logoutM', {}).subscribe(
       (response) => {
-
+        localStorage.removeItem('email');
+        this.isAuthenticated = false;
         window.location.href = '/login';
       },
       (error) => {
@@ -37,5 +41,9 @@ export class DashboardComponent implements OnInit {
         console.error('Error al cerrar sesión:', error);
       }
     );
+  }
+  perfil() {
+    this.router.navigate(['/perfil']);
+
   }
 }

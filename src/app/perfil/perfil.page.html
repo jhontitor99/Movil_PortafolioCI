@@ -1,0 +1,47 @@
+<ion-header>
+  <br>
+  <ion-toolbar>
+    <ion-title>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="volver()" class="volver-button">
+        Volver
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<br>
+
+<ion-content *ngIf="perfil">
+  <div class="profile-card">
+    <ion-card-title class="title">Datos del Perfil</ion-card-title>
+    <br>
+
+    <ion-table class="info-table">
+      <ion-row>
+        <ion-col class="info-label">Nombres</ion-col>
+        <ion-col class="info-value">{{ perfil.usuario.nombres }}</ion-col>
+      </ion-row>
+      <br>
+      <ion-row>
+        <ion-col class="info-label">Apellidos</ion-col>
+        <ion-col class="info-value">{{ perfil.usuario.apellidos }}</ion-col>
+      </ion-row>
+      <br>
+      <ion-row>
+        <ion-col class="info-label">Teléfono</ion-col>
+        <ion-col class="info-value">{{ perfil.usuario.telefono }}</ion-col>
+      </ion-row>
+      <br>
+      <ion-row>
+        <ion-col class="info-label">Dirección</ion-col>
+        <ion-col class="info-value">{{ perfil.usuario.direccion }}</ion-col>
+      </ion-row>
+      <br>
+      <ion-row>
+        <ion-col class="info-label">RUN</ion-col>
+        <ion-col class="info-value">{{ perfil.usuario.run }}</ion-col>
+      </ion-row>
+    </ion-table>
+  </div>
+</ion-content>
